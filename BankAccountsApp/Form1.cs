@@ -8,7 +8,7 @@ namespace BankAccountsApp
 
             BankAccount bankAccount = new BankAccount("Khaled Abd_Elhanan");
 
-            BankAccount bankAccount2 = new BankAccount("Mohamed Abd_Elhanan");
+            BankAccount bankAccount2 = new BankAccount("Jans_Celine");
 
             BankAccount bankAccount3 = new BankAccount("Ahmed Abd_Elhanan");
             
