@@ -55,9 +55,12 @@
             // AmountNum
             // 
             AmountNum.Location = new Point(113, 275);
+            AmountNum.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             AmountNum.Name = "AmountNum";
             AmountNum.Size = new Size(216, 35);
             AmountNum.TabIndex = 3;
+            AmountNum.UseWaitCursor = true;
+            AmountNum.ValueChanged += AmountNum_ValueChanged;
             // 
             // BankAccountGird
             // 
@@ -76,6 +79,7 @@
             DepositeBtn.TabIndex = 6;
             DepositeBtn.Text = "Deposit";
             DepositeBtn.UseVisualStyleBackColor = true;
+            DepositeBtn.Click += DepositeBtn_Click;
             // 
             // WithdrawBtn
             // 
@@ -85,6 +89,7 @@
             WithdrawBtn.TabIndex = 7;
             WithdrawBtn.Text = "Withdraw";
             WithdrawBtn.UseVisualStyleBackColor = true;
+            WithdrawBtn.Click += WithdrawBtn_Click;
             // 
             // buttonCreateAccountBtn
             // 
@@ -116,6 +121,11 @@
             ((System.ComponentModel.ISupportInitialize)BankAccountGird).EndInit();
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void AmountNum_ValueChanged(object sender, EventArgs e)
+        {
+            // ضع هنا الكود المطلوب عند تغيير القيمة
         }
 
         private Label label1;
