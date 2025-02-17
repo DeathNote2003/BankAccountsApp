@@ -19,11 +19,11 @@ namespace BankAccountsApp
         public string Owner { get; set; }
         // Guid --> to create globally unique identifier {Unique ID}
         public Guid AccountNumber { get; set; }
-        public decimal Balance { get; private set; }
+        public decimal Balance { get; protected set; }
         
 
         // Encapsulation 
-        public string Deposit(decimal amount)
+        public virtual string Deposit(decimal amount)
         {
             if(amount <= 0) 
                 return "You can not deposit $" + amount;
@@ -41,6 +41,7 @@ namespace BankAccountsApp
                 return "You can not withdraw $" + amount;
             if (amount > Balance)
                 return "You don't have enough money.";
+           
             Balance -= amount;
             return "Withdraw completed successfully .";
 
