@@ -15,11 +15,14 @@ namespace BankAccountsApp
             {
                 return;
             }
-            BankAccount bankAccount = new BankAccount(OwnerTxt.Text);
+            if(InterestRateNum.Value >0 )        
+                BankAccountsList.Add(new SavingAccount(OwnerTxt.Text, InterestRateNum.Value));  
+            else
+                BankAccountsList.Add(new BankAccount(OwnerTxt.Text));
 
-            BankAccountsList.Add(bankAccount);
             RefreshGrid();
             OwnerTxt.Text = "";
+            InterestRateNum.Value = 0;
         }
 
         private void RefreshGrid()
@@ -28,7 +31,7 @@ namespace BankAccountsApp
             BankAccountGird.DataSource = BankAccountsList;
         }
 
-       
+
 
         private void DepositeBtn_Click(object sender, EventArgs e)
         {
@@ -46,16 +49,26 @@ namespace BankAccountsApp
 
         private void WithdrawBtn_Click(object sender, EventArgs e)
         {
-            if (BankAccountGird.SelectedRows.Count == 1 & AmountNum.Value > 0) 
-            { 
+            if (BankAccountGird.SelectedRows.Count == 1 & AmountNum.Value > 0)
+            {
                 BankAccount selectedBankAccount = BankAccountGird.SelectedRows[0]
                     .DataBoundItem as BankAccount;
                 //selectedBankAccount.Balance -= AmountNum.Value;
-                string message = selectedBankAccount.WithDraw(AmountNum.Value);  
+                string message = selectedBankAccount.WithDraw(AmountNum.Value);
                 RefreshGrid();
                 AmountNum.Value = 0;
                 MessageBox.Show(message);
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
